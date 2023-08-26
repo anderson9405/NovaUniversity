@@ -1,0 +1,208 @@
+---- Laravel commands
+
+* laravel instalation
+- composer global require laravel/installer
+
+* Creación de un proyecto
+- laravel new novatv
+
+
+---- Comandos GIT
+
+* Inicializar repositorio
+- git init
+
+* Guardar cambios en el stage
+- git add .
+
+* Guardar versión
+- git commit -m "vesión #1"
+
+
+---- Comandos artisan
+
+* Artisan: sotware que permite gestionar un programa en laravel desde la línea de comando 
+
+
+* execute migration
+- php artisan migrate
+
+* migrations
+- php artisan migrate:fresh           Drop all tables and re-run all migrations
+- php artisan migrate:install         Create the migration repository
+- php artisan migrate:refresh         Reset and re-run all migrations
+- php artisan migrate:reset           Rollback all database migrations
+- php artisan migrate:rollback        Rollback the last database migration
+- php artisan migrate:status          Show the status of each migration
+
+* create seeders
+- php artisan make:seeder RoleSeeder
+
+
+* Abrir interfaz de consola
+- php artisan tinker 
+
+* Create a migration
+- php artisan make:migration create_roles_table
+
+---- Comandos ORM
+
+++++  CREATE
+
+use App\Models\User;
+
+$user = new User;
+$user->fullname="Anderson";
+$user->email="anderson@gmail.com";
+$user->password="1234";
+$user->save();
+
+$user = new User;
+$user->fullname="Rosa";
+$user->email="rosa@gmail.com";
+$user->password="1234";
+$user->save();
+
+$user = new User;
+$user->fullname="Mary";
+$user->email="mary@gmail.com";
+$user->password="1234";
+$user->save();
+
+$tag = new Tag;
+$tag->name="Colombia";
+$tag->description="Contenido relacionado con Colombia";
+$tag->save();
+
+$tag = new Tag;
+$tag->name="Noticias";
+$tag->description="Información de sucesos actuales";
+$tag->save();
+
+$tag = new Tag;
+$tag->name="Incautaciones";
+$tag->description="Decomiso de mercancías";
+$tag->save();
+
+
+
+$post = new Post;
+$post->title="Comunicado de Prensa No. 049";
+$post->summary="Línea Anticontrabando 159: Primer año al servicio de la ciudadanía mostrando resultados.";
+$post->content="En la conmemoración del primer año de la puesta en marcha de la Línea Anticontrabando 159, operada y administrada por la Dirección de Gestión de Policía Fiscal y Aduanera de la Dirección de Impuestos y Aduanas Nacionales -DIAN, son entregados los resultados que este canal de servicio ha permitido obtener frente al contrabando.  ";
+$post->user_id="1";
+$post->tag_id="2";
+$post->save();
+
+$post = new Post;
+$post->title="Comunicado de Prensa No. 049";
+$post->summary="Línea Anticontrabando 159: Primer año al servicio de la ciudadanía mostrando resultados.";
+$post->content="En la conmemoración del primer año de la puesta en marcha de la Línea Anticontrabando 159, operada y administrada por la Dirección de Gestión de Policía Fiscal y Aduanera de la Dirección de Impuestos y Aduanas Nacionales -DIAN, son entregados los resultados que este canal de servicio ha permitido obtener frente al contrabando.  ";
+$post->user_id="1";
+$post->tag_id="2";
+$post->save();
+
+$post = new Post;
+$post->title="Comunicado de Prensa No. 050";
+$post->summary="En segunda sesión de la Corte Constitucional, DIAN reitera impacto fiscal por deducción de regalías en impuesto sobre la renta.";
+$post->content="Hoy tendrá lugar la segunda audiencia pública de la Corte Constitucional para escuchar los distintos argumentos expuestos en los procesos de constitucionalidad que se presentaron contra el parágrafo 1 (parcial) del artículo 19 de la Ley 2277 de 2022  (Reforma Tributaria para la igualdad y la justicia social). En esta jornada la Dirección de Impuestos y Aduanas Nacionales -DIAN- espera poder argumentar la diferencia de cómo es la deducción cuando las regalías se pagan en especie y cómo cuando se pagan en dinero en efectivo.";
+$post->user_id="2";
+$post->tag_id="1";
+$post->save();
+
+
+$post = new Post;
+$post->title="Comunicado de Prensa No. 051";
+$post->summary="Nueva experiencia de usuario: Declarar la renta del año gravable 2022 será más fácil";
+$post->content="Para facilitar el cumplimiento voluntario de las obligaciones de los contribuyentes, la Dirección de Impuestos y Aduanas Nacionales -DIAN- ha implementado una serie de innovaciones para mejorar la experiencia de usuario de la ciudadanía al momento de declarar renta. ";
+$post->user_id="3";
+$post->tag_id="2";
+$post->save();
+
+$career=new Career;
+$career->name='programación';
+$career->description='Tecnología en programación de aplicaciones y software';
+$career->save();
+
+
+$career=new Career;
+$career->name='Contabilidad';
+$career->description='Contabilidad y normatividad tributaria';
+$career->save();
+
+$career=new Career;
+$career->name='ingeniería de sistemas';
+$career->description='Ingeniería en desarrollo y mantenimiento de hardware y software';
+$career->save();
+
+$user = new User;
+$user->fullname="Anderson";
+$user->email="anderson@gmail.com";
+$user->password="1234";
+$user->career_id=1;
+$user->save();
+
+$user = new User;
+$user->fullname="Rosa";
+$user->email="rosa@gmail.com";
+$user->password="1234";
+$user->career_id=3;
+$user->save();
+
+$user = new User;
+$user->fullname="Mary";
+$user->email="mary@gmail.com";
+$user->password="1234";
+$user->career_id=2;
+$user->save();
+
+
+use App\Models\Group;
+
+$group = new Group;
+$group->name='Electiva profesional';
+$group->description='Programación en laravel';
+$group->code='EP1';
+$group->image='./img/electiva1.jpg';
+$group->teacher_id=1;
+$group->save();
+
+$group = new Group;
+$group->name='Costos';
+$group->description='Sistemas de costeo financiero';
+$group->code='CTS1';
+$group->image='./img/costos.jpg';
+$group->teacher_id=2;
+$group->save();
+
+$group = new Group;
+$group->name='Electrónica';
+$group->description='Hardware y sistemas electrónicos';
+$group->code='ETC';
+$group->image='./img/electronica.jpg';
+$group->teacher_id=3;
+$group->save();
+
+use App\Models\Inscription;
+
+$inscription = new Inscription;
+$inscription->user_id=1;
+$inscription->group_id=2;
+$inscription->save();
+
+$inscription = new Inscription;
+$inscription->user_id=2;
+$inscription->group_id=3;
+$inscription->save();
+
+$inscription = new Inscription;
+$inscription->user_id=3;
+$inscription->group_id=1;
+$inscription->save();
+
+
+++++ READ
+$users = User::all(); //obtiene todos los registros 
+$user = User::find(3); // Obtiene un registro específico
+$users = User::find([1,2,3]); //Obtiene varios registros
+$count = User::count(); //Obtiene la cantidad de usuarios
